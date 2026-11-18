@@ -97,7 +97,7 @@ export default async function HomePage() {
                 height={905}
                 loading="eager"
                 decoding="async"
-                className="block w-[160%] max-w-none select-none drop-shadow-soft"
+                className="block w-[115%] max-w-none select-none drop-shadow-soft lg:w-[160%]"
               />
             </div>
 
@@ -107,7 +107,7 @@ export default async function HomePage() {
                 (100 persen) menjaganya tetap di dalam siluet. */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute bottom-0 left-1/2 z-[15] h-[50%] w-[160%] -translate-x-1/2 bg-gradient-to-t from-forest-950 via-forest-950/55 to-transparent"
+              className="pointer-events-none absolute bottom-0 left-1/2 z-[15] h-[50%] w-[115%] -translate-x-1/2 bg-gradient-to-t from-forest-950 via-forest-950/55 to-transparent lg:w-[160%]"
               style={{
                 WebkitMaskImage: "url(/hero-santri.png)",
                 maskImage: "url(/hero-santri.png)",

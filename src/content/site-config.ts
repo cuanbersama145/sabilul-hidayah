@@ -26,7 +26,7 @@ export type SiteConfig = {
 
 export const siteConfig: SiteConfig = {
   // GANTI: URL domain resmi pondok sebelum rilis. Tanpa garis miring di akhir.
-  url: "https://sabilulhidayah.id",
+  url: "https://sabilul-hidayah.vercel.app",
   address: {
     line: "Jl. Raya Sabilul Hidayah, Desa …",
     district: "Kecamatan …",

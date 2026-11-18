@@ -1,0 +1,247 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    font-feature-settings: "kern" 1;
+    /* Elemen yang belum tampil digeser 48 px oleh animasi masuk. Pada layar
+       sempit geseran itu melebihi lebar layar dan memunculkan gulir mendatar.
+       `clip` memotong luapan tanpa membuat wadah gulir baru, jadi header
+       lengket tetap bekerja. */
+    overflow-x: clip;
+  }
+
+  ::selection {
+    @apply bg-gold-300 text-forest-950;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-gold-500 ring-offset-2 ring-offset-paper;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+    font-variation-settings: "SOFT" 0, "WONK" 0;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-wrap px-5 sm:px-8;
+  }
+
+  .label {
+    @apply text-[0.7rem] font-semibold uppercase tracking-label text-gold-700;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full bg-gold-100 px-4 py-1.5 text-[0.65rem] font-semibold uppercase tracking-label text-gold-700;
+  }
+
+  .rule {
+    @apply h-px w-full bg-ink/10;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition duration-200;
+  }
+
+  .btn-primary {
+    @apply btn bg-forest-900 text-paper hover:bg-forest-800;
+  }
+
+  .btn-secondary {
+    @apply btn border border-ink/20 text-ink hover:border-ink/40 hover:bg-ink/5;
+  }
+
+  .btn-gold {
+    @apply btn bg-gold-500 text-forest-950 hover:bg-gold-300;
+  }
+
+  .arch {
+    border-radius: 999px 999px 24px 24px;
+  }
+
+  .card {
+    @apply rounded-card border border-ink/10 bg-paper p-6 transition duration-200;
+  }
+
+  .link-underline {
+    @apply underline decoration-gold-500 decoration-1 underline-offset-4 transition hover:decoration-gold-700;
+  }
+
+  /* --- Gerakan, meniru gaya referensi binaqurani.sch.id --- */
+
+  .kartu-timbul {
+    transition: box-shadow 0.22s ease, transform 0.22s ease;
+  }
+
+  .ikon-timbul {
+    transition: transform 0.26s cubic-bezier(0.22, 0.61, 0.36, 1),
+      box-shadow 0.26s ease;
+  }
+
+  .gambar-sorot {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gambar-sorot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+    background: linear-gradient(to top, rgba(6, 26, 20, 0.3), transparent 55%);
+    transition: opacity 0.35s ease;
+  }
+
+  .gambar-zoom {
+    transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+}
+
+/* Muncul saat digulir. Konten tetap terlihat bila JavaScript mati atau
+   pengguna memilih mengurangi gerakan. */
+@media (prefers-reduced-motion: no-preference) {
+  .sh-js [data-sh-anim] {
+    opacity: 0;
+    will-change: opacity, transform;
+  }
+
+  .sh-js [data-sh-anim="kiri"] {
+    transform: translateY(28px);
+  }
+
+  .sh-js [data-sh-anim="kanan"] {
+    transform: translateY(28px);
+  }
+
+  /* Geseran mendatar baru dipakai pada layar lebar. Di layar sempit, elemen
+     selebar kontainer yang digeser 48 px melebihi lebar layar dan memunculkan
+     gulir mendatar sebelum elemen tampil. */
+  @media (min-width: 1024px) {
+    .sh-js [data-sh-anim="kiri"] {
+      transform: translateX(-48px);
+    }
+
+    .sh-js [data-sh-anim="kanan"] {
+      transform: translateX(48px);
+    }
+  }
+
+  .sh-js [data-sh-anim="turun"] {
+    transform: translateY(-34px);
+  }
+
+  .sh-js [data-sh-anim="naik"] {
+    transform: translateY(34px);
+  }
+
+  .sh-js [data-sh-anim="pudar"] {
+    transform: none;
+  }
+
+  .sh-js [data-sh-anim].sh-tampil {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.75s ease,
+      transform 0.75s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  .sh-js [data-sh-tunda="1"] {
+    transition-delay: 90ms;
+  }
+
+  .sh-js [data-sh-tunda="2"] {
+    transition-delay: 180ms;
+  }
+
+  .sh-js [data-sh-tunda="3"] {
+    transition-delay: 270ms;
+  }
+
+  .sh-js [data-sh-tunda="4"] {
+    transition-delay: 360ms;
+  }
+
+  .sh-js [data-sh-tunda="5"] {
+    transition-delay: 450ms;
+  }
+
+  .kartu-timbul:hover,
+  .kartu-timbul:focus-within,
+  .sh-js .kartu-timbul:hover,
+  .sh-js .kartu-timbul:focus-within {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(10, 42, 32, 0.18);
+  }
+
+  .ikon-timbul:hover,
+  .kartu-timbul:hover .ikon-timbul,
+  .kartu-timbul:focus-within .ikon-timbul {
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: 0 10px 22px rgba(10, 42, 32, 0.18);
+  }
+
+  .gambar-sorot:hover::after,
+  .gambar-sorot:focus-within::after {
+    opacity: 1;
+  }
+
+  .gambar-sorot:hover .gambar-zoom,
+  .gambar-sorot:focus-within .gambar-zoom {
+    transform: scale(1.06);
+  }
+
+  .detak {
+    animation: sh-detak 2.4s ease-in-out infinite;
+  }
+
+  .detak-tunda {
+    animation-delay: 1.2s;
+  }
+
+  .anim-buka {
+    animation: sh-buka 0.32s ease-out;
+  }
+
+}
+
+@keyframes sh-detak {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes sh-buka {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

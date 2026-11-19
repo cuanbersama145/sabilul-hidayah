@@ -84,8 +84,9 @@ export default async function HomePage() {
             />
 
             {/* Desain hero: pelajar muslim dengan latar hijau geometris —
-                latar transparan. Gambar diperbesar (160 persen) agar panel
-                hijau menutupi area teks di dalam kolom; lebih kecil dari itu
+                latar transparan. Di seluler gambar selebar kolom (100 persen);
+                di desktop (>1024 px) diperbesar 160 persen agar panel hijau
+                menutupi area teks di dalam kolom; lebih kecil dari itu
                 (di bawah ±144 persen) tepi kiri panel masuk melewati padding
                 teks. Dipusatkan dengan flex (mx-auto gagal bila gambar lebih
                 lebar dari kontainer). */}
@@ -97,17 +98,18 @@ export default async function HomePage() {
                 height={905}
                 loading="eager"
                 decoding="async"
-                className="block w-[115%] max-w-none select-none drop-shadow-soft lg:w-[160%]"
+                className="block w-full max-w-none select-none drop-shadow-soft lg:w-[160%]"
               />
             </div>
 
             {/* Gradasi setengah badan di bagian bawah, dikunci ke dalam
-                siluet gambar. Lebar scrim dibuat selebar gambar (160 persen,
-                dipusatkan) sehingga gradasi merata di seluruh panel; mask
-                (100 persen) menjaganya tetap di dalam siluet. */}
+                siluet gambar. Lebar scrim dibuat selebar gambar (100 persen
+                di seluler, 160 persen di desktop, dipusatkan) sehingga
+                gradasi merata di seluruh panel; mask (100 persen) menjaganya
+                tetap di dalam siluet. */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute bottom-0 left-1/2 z-[15] h-[50%] w-[115%] -translate-x-1/2 bg-gradient-to-t from-forest-950 via-forest-950/55 to-transparent lg:w-[160%]"
+              className="pointer-events-none absolute bottom-0 left-1/2 z-[15] h-[50%] w-full -translate-x-1/2 bg-gradient-to-t from-forest-950 via-forest-950/55 to-transparent lg:w-[160%]"
               style={{
                 WebkitMaskImage: "url(/hero-santri.png)",
                 maskImage: "url(/hero-santri.png)",
@@ -120,19 +122,25 @@ export default async function HomePage() {
               }}
             />
 
-            {/* Teks di bagian bawah, di depan kedua orang. */}
-            <div className="absolute inset-x-0 bottom-0 z-20 px-6 pb-7 sm:px-8 sm:pb-9">
+            {/* Teks di bagian bawah, di depan kedua orang.
+                Di seluler (<640 px) padding memakai persen karena kotak teks
+                selebar gambar: panel opaque pada baris teks hanya mencakup
+                ±20%..91% lebar gambar, jadi 25% kiri / 12% kanan menjamin
+                seluruh tulisan berada di dalam panel. Ukuran huruf juga
+                diperkecil agar ringkas. Semua aturan ini dibatasi varian
+                max-sm sehingga tampilan tablet/desktop tidak berubah. */}
+            <div className="absolute inset-x-0 bottom-0 z-20 px-6 pb-7 sm:px-8 sm:pb-9 max-sm:pl-[25%] max-sm:pr-[12%] max-sm:pb-6">
               <Link
                 href="/pengumuman/"
-                className="inline-flex items-center gap-2 rounded-full border border-paper/25 bg-forest-950/45 px-4 py-1.5 text-[0.62rem] font-semibold uppercase tracking-label text-paper backdrop-blur transition hover:bg-forest-950/70"
+                className="inline-flex items-center gap-1.5 rounded-full border border-paper/25 bg-forest-950/45 px-3.5 py-1 text-[0.58rem] font-semibold uppercase tracking-label text-paper backdrop-blur transition hover:bg-forest-950/70 max-sm:px-3 max-sm:text-[0.55rem]"
               >
                 Pengumuman
                 <span aria-hidden="true">→</span>
               </Link>
-              <p className="mt-4 font-display text-[1.45rem] leading-snug text-paper sm:text-2xl">
+              <p className="mt-3 font-display text-[1.15rem] leading-snug text-paper sm:text-xl max-sm:mt-2.5 max-sm:text-[1rem]">
                 Tidak ada biaya pendidikan, asrama, makan, maupun kitab.
               </p>
-              <p className="mt-3 text-[0.65rem] font-semibold uppercase tracking-label text-gold-300">
+              <p className="mt-2 text-[0.6rem] font-semibold uppercase tracking-label text-gold-300 max-sm:mt-1.5 max-sm:text-[0.55rem]">
                 Sabilul Hidayah
               </p>
             </div>

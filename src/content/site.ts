@@ -117,7 +117,7 @@ export const values = [
 export const donationUses = [
   {
     title: "Pendidikan",
-    body: "kitab pegangan, dan kebutuhan madrasah.",
+    body: "Kitab pegangan dan kebutuhan madrasah.",
   },
   {
     title: "Asrama dan makan",

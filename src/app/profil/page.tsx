@@ -23,7 +23,7 @@ export default function ProfilPage() {
       <PageHero
         eyebrow="Profil"
         title="Pondok salafi yang menempatkan adab sebelum ilmu."
-        lead="Sabilul Hidayah tumbuh dari kebutuhan masyarakat sekitar akan tempat belajar agama yang terjangkau. Sampai hari ini pondok tidak memungut biaya pendidikan."
+        lead="Sabilul Hidayah berdiri di atas tanah wakaf sebagai tempat belajar agama. Sampai hari ini pondok tidak memungut biaya pendidikan."
         anim="naik"
         media={
           <img
@@ -44,8 +44,8 @@ export default function ProfilPage() {
           <SectionHeading eyebrow="Tentang pondok" title="Berdiri dari wakaf dan kebersamaan." />
           <div className="space-y-5 text-base leading-relaxed text-muted">
             <p>
-              {site.fullName} hadir sebagai tempat menuntut ilmu agama bagi
-              masyarakat yang membutuhkan pendidikan Islam yang terjangkau.
+              {site.fullName} menerima santri untuk menuntut ilmu agama. Pondok
+              tidak memungut biaya pendidikan.
             </p>
             <p>
               Berdiri di atas tanah wakaf, kegiatan operasional pondok

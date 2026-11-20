@@ -4,7 +4,7 @@ import { waLink } from "@/content/site";
 
 export const metadata: Metadata ={
 	title: "Tempe Pondok",
-	description: "Tempe sehat, Bergizi, dan dibuat sepenuh hati.",
+	description: "Tempe buatan santri Sabilul Hidayah. Hasil penjualan dipakai untuk kebutuhan santri.",
 };
 export default function TempePage() {
 	return (
@@ -13,7 +13,7 @@ export default function TempePage() {
 	<PageHero
 	eyebrow="Tempe pondok"
 	title="Tempe Sabilul Hidayah"
-	lead="Tempe Berkualitas, Nutrisi untuk Generasi yang Lebih sehat."
+	lead="Santri membuat dan menjual tempe pondok. Hasilnya untuk kebutuhan sehari-hari."
 	anim="naik"
 	media={
 		<img
@@ -33,8 +33,8 @@ export default function TempePage() {
 	 <div className="wrap">
 	  <SectionHeading
 	   eyebrow="Kenapa tempe pondok?"
-	   title="Mengapa Memilih Tempe Kami?"
-	   lead="Diproduksi dari kedelai terpilih dengan proses pengolahan yang baik untuk menghadirkan tempe yang bergizi, lezat"
+	   title="Tempe buatan santri"
+	   lead="Santri membuat tempe di pondok dan menjualnya. Uangnya dipakai untuk kebutuhan sehari-hari."
 	   />
 	   <div className="mt-12 grid gap-5 sm:grid-cols-3">
 	    <div className="rounded-card border border-ink/10 p-6">
@@ -47,18 +47,18 @@ export default function TempePage() {
 		  </div>
 		  <div className="rounded-card border border-ink/10 p-6">
 		 <h3 className="font-display text-xl tracking-tight">
-		 Mendukung pemberdayaan ekonomi pesantren.
+		 Uangnya kembali ke pondok.
 		 </h3>
 		 <p className="mt-2 text-sm leading-relaxed text-muted">
-		 Setiap pembelian turut membantu mengembangkan usaha pesantren, mendukung kegiatan para santri, serta membangun kemandirian ekonomi pondok secara berkelanjutan.
+		 Hasil penjualan dipakai untuk kebutuhan santri dan operasional pondok.
 		  </p>
 		 </div>
 		  <div className="rounded-card border border-ink/10 p-6">
 		 <h3 className="font-display text-xl tracking-tight">
-		Harga terjangkau untuk kebutuhan sehari-hari.
+		Harga satu bungkus Rp 7.000.
 		 </h3>
 		 <p className="mt-2 text-sm leading-relaxed text-muted">
-		 Menawarkan harga yang ramah di kantong dengan kualitas yang tetap terjaga, sehingga cocok untuk memenuhi kebutuhan konsumsi sehari-hari anak-anak, santri, maupun keluarga.
+		 Pesan lewat WhatsApp atau ambil langsung di pondok.
 		  </p>
 		 </div>
 		 </div>
@@ -70,7 +70,7 @@ export default function TempePage() {
 		<div className="wrap">
 		 <SectionHeading
 		   eyebrow="Harga"
-		   title="Harga Terjangkau, Kualitas Terjaga."
+		   title="Harga tempe"
 		/>
 		<div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
 		 <div className="rounded-card border border-ink/10 bg-paper p-8 shadow-card">
@@ -90,7 +90,7 @@ export default function TempePage() {
 	<section className="py-16 md:py-24">
 		<div className="wrap text-center">
 			<h2 className="font-display text-3xl tracking-tight md:text-4xl">
-			Belanja Produk Pesantren, Sekaligus Dukung Kemandirian Santri!!!
+			Pesan tempe pondok
 			</h2>
 			<p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted">
 			Pesanan dapat dilakukan via WhatsApp atau ambil langsung di pondok.

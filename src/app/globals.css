@@ -48,8 +48,15 @@
     @apply text-[0.7rem] font-semibold uppercase tracking-label text-gold-700;
   }
 
+  /* Penanda seksi bergaya editorial: garis emas pendek + label kecil, bukan
+     lencana pill. Pill membuat halaman terasa seperti template. */
   .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full bg-gold-100 px-4 py-1.5 text-[0.65rem] font-semibold uppercase tracking-label text-gold-700;
+    @apply inline-flex items-center gap-2.5 text-[0.7rem] font-semibold uppercase tracking-label text-gold-700;
+  }
+
+  .eyebrow::before {
+    content: "";
+    @apply h-px w-6 bg-gold-600;
   }
 
   .rule {
@@ -221,6 +228,16 @@
     animation: sh-buka 0.32s ease-out;
   }
 
+}
+
+/* Utilitas `animate-rise` dipakai langsung di hero dan tidak memakai atribut
+   data-sh-anim, jadi harus dinonaktifkan terpisah bila pengguna memilih
+   mengurangi gerakan. Aturan ini ditulis setelah @tailwind utilities sehingga
+   menang tanpa !important. */
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise {
+    animation: none;
+  }
 }
 
 @keyframes sh-detak {

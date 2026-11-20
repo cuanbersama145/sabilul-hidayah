@@ -25,7 +25,7 @@ export default async function HomePage() {
           <div className="animate-rise">
             <Link
               href="/pengumuman/pendaftaran-santri-baru/"
-              className="eyebrow transition hover:border-gold-600/60 hover:bg-gold-100"
+              className="eyebrow transition hover:text-gold-600"
             >
               <span
                 className="h-1.5 w-1.5 rounded-full bg-gold-600"
@@ -78,11 +78,6 @@ export default async function HomePage() {
           </div>
 
           <div className="relative mx-auto w-full max-w-md animate-rise lg:max-w-[400px]">
-            <div
-              className="detak detak-tunda pointer-events-none absolute -inset-10 rounded-full bg-gold-500/10 blur-3xl"
-              aria-hidden="true"
-            />
-
             {/* Desain hero: pelajar muslim dengan latar hijau geometris —
                 latar transparan. Di seluler gambar selebar kolom (100 persen);
                 di desktop (>1024 px) diperbesar 160 persen agar panel hijau
@@ -171,24 +166,25 @@ export default async function HomePage() {
             </span>
           </div>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Pilar ditata sebagai kolom editorial berpemisah, bukan kartu
+              identik — menghindari pola grid-kartu yang berulang. */}
+          <div className="mt-10 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
             {pillars.map((pillar, index) => (
               <div
                 key={pillar.title}
                 data-sh-anim="naik"
                 data-sh-tunda={Math.min(index + 1, 5)}
+                className="border-t border-paper/20 pt-5"
               >
-                <div className="kartu-timbul h-full rounded-card border border-paper/10 bg-forest-950/30 p-6">
-                  <span className="ikon-timbul inline-flex h-10 w-10 items-center justify-center rounded-xl bg-paper/10 text-gold-300">
-                    <StarMark className="h-4 w-4" />
-                  </span>
-                  <h2 className="mt-5 font-display text-lg tracking-tight text-paper">
-                    {pillar.title}
-                  </h2>
-                  <p className="mt-2 text-sm leading-relaxed text-paper/70">
-                    {pillar.body}
-                  </p>
-                </div>
+                <span className="font-display text-sm text-gold-300">
+                  0{index + 1}
+                </span>
+                <h2 className="mt-3 font-display text-lg tracking-tight text-paper">
+                  {pillar.title}
+                </h2>
+                <p className="mt-2 text-sm leading-relaxed text-paper/70">
+                  {pillar.body}
+                </p>
               </div>
             ))}
           </div>
@@ -212,38 +208,36 @@ export default async function HomePage() {
             </Link>
           </div>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
+          {/* Program: daftar bernomor bergaris pemisah, alih-alih tiga kartu
+              identik berkotak ikon yang sama. */}
+          <div className="mt-12 border-t border-ink/10">
             {programs.map((program, index) => (
-              <div
+              <article
                 key={program.number}
                 data-sh-anim="naik"
                 data-sh-tunda={Math.min(index + 1, 5)}
+                className="grid gap-x-10 gap-y-4 border-b border-ink/10 py-8 md:grid-cols-[auto_1fr_1fr] md:items-start"
               >
-                <article className="card kartu-timbul h-full">
-                  <div className="flex items-center justify-between">
-                    <span className="ikon-timbul inline-flex h-11 w-11 items-center justify-center rounded-xl bg-forest-900 text-gold-300">
-                      <StarMark className="h-5 w-5" />
-                    </span>
-                    <span className="font-display text-sm text-gold-700">
-                      {program.number}
-                    </span>
-                  </div>
-                  <h3 className="mt-5 font-display text-2xl tracking-tight">
+                <span className="font-display text-4xl leading-none text-gold-700 md:text-5xl">
+                  {program.number}
+                </span>
+                <div>
+                  <h3 className="font-display text-2xl tracking-tight">
                     {program.title}
                   </h3>
                   <p className="mt-3 text-sm leading-relaxed text-muted">
                     {program.body}
                   </p>
-                  <ul className="mt-6 space-y-2 border-t border-ink/10 pt-5 text-sm text-ink/80">
-                    {program.points.map((point) => (
-                      <li key={point} className="flex items-start gap-2.5">
-                        <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-gold-600" />
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              </div>
+                </div>
+                <ul className="space-y-2 text-sm text-ink/80 md:border-l md:border-ink/10 md:pl-8">
+                  {program.points.map((point) => (
+                    <li key={point} className="flex items-start gap-2.5">
+                      <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-gold-600" />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </article>
             ))}
           </div>
         </div>
@@ -467,7 +461,7 @@ export default async function HomePage() {
 
           <div
             data-sh-anim="kanan"
-            className="rounded-card border border-paper/15 bg-forest-950/40 p-7 backdrop-blur sm:p-8"
+            className="rounded-card border border-paper/15 bg-forest-950/40 p-7 sm:p-8"
           >
             <p className="text-[0.65rem] font-semibold uppercase tracking-label text-gold-300">
               Rekening resmi

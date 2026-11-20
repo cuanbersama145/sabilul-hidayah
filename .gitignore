@@ -5,3 +5,9 @@ out/
 next-env.d.ts
 .DS_Store
 .env*.local
+
+# Screenshot sementara dari proses inspeksi
+public/_tmp_shot.jpg
+
+# Skill bawaan (third-party) di .opencode/skills — vendored tool, bukan kode proyek.
+.opencode/skills/

@@ -16,7 +16,7 @@ export default function PendidikanPage() {
       <PageHero
         eyebrow="Pendidikan"
         title="Kitab kuning, adab, dan hidup bersama."
-        lead="Santri belajar langsung dari kitab yang dipelajari para ulama. Setiap jenjang disesuaikan dengan kesiapan santri, bukan sekadar umur."
+        lead="Santri belajar langsung dari kitab yang dipelajari para ulama. Penempatan jenjang mengikuti kesiapan santri, bukan usianya."
         anim="naik"
       />
 

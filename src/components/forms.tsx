@@ -4,7 +4,7 @@ import { useState } from "react";
 import { waLink } from "@/content/site";
 
 const field =
-  "mt-2 w-full rounded-xl border border-ink/15 bg-white/70 px-4 py-3 text-sm text-ink placeholder:text-muted focus:border-gold-500 focus:outline-none focus:ring-0";
+  "mt-2 w-full rounded-xl border border-ink/15 bg-white/70 px-4 py-3 text-sm text-ink placeholder:text-muted focus:border-gold-500";
 const labelStyle = "text-xs font-semibold uppercase tracking-label text-muted";
 
 export function InquiryForm() {

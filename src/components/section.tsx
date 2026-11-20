@@ -29,10 +29,7 @@ export function PageHero({
           }
         >
           <div>
-            <span className="eyebrow">
-              <span className="h-1 w-1 rounded-full bg-gold-600" aria-hidden="true" />
-              {eyebrow}
-            </span>
+            <span className="eyebrow">{eyebrow}</span>
             <h1 className="mt-5 max-w-3xl text-[2.6rem] leading-[1.03] tracking-tight md:text-6xl">
               {title}
             </h1>
@@ -65,10 +62,7 @@ export function SectionHeading({
 }) {
   return (
     <div className={className} data-sh-anim={anim}>
-      <span className="eyebrow">
-        <span className="h-1 w-1 rounded-full bg-gold-600" aria-hidden="true" />
-        {eyebrow}
-      </span>
+      <span className="eyebrow">{eyebrow}</span>
       <h2 className="mt-4 text-3xl leading-tight tracking-tight md:text-[2.6rem]">
         {title}
       </h2>

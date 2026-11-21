@@ -59,6 +59,9 @@ export default function AdminDashboardPage() {
         <Link href="/admin/pengumuman/baru/" className="btn-primary">
           Buat pengumuman
         </Link>
+        <Link href="/admin/pengaturan/" className="btn-secondary">
+          Pengaturan website
+        </Link>
       </div>
 
       <p className="mt-8 text-sm text-muted">

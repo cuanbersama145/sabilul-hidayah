@@ -12,11 +12,11 @@ import { keluar } from "@/lib/admin-session";
 const MENU: { label: string; href: string; tersedia: boolean }[] = [
   { label: "Dashboard", href: "/admin/", tersedia: true },
   { label: "Pengumuman", href: "/admin/pengumuman/", tersedia: true },
+  { label: "Pengaturan Website", href: "/admin/pengaturan/", tersedia: true },
   { label: "Aktif", href: "#", tersedia: false },
   { label: "Berita dan Artikel", href: "#", tersedia: false },
   { label: "Galeri dan Media", href: "#", tersedia: false },
   { label: "Pengguna dan Hak Akses", href: "#", tersedia: false },
-  { label: "Pengaturan Website", href: "#", tersedia: false },
 ];
 
 function NavItems({

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { nav, site, waLink } from "@/content/site";
+import { nav, site, waLinkTo } from "@/content/site";
 import { Logo } from "./logo";
 import { GirihPattern } from "./girih-pattern";
 
@@ -47,16 +47,26 @@ export function SiteFooter() {
                 <br />
                 {site.address.province} {site.address.postal}
               </p>
-              <p>
-                <a
-                  href={waLink("Assalamu'alaikum, saya ingin bertanya.")}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="transition hover:text-paper"
-                >
-                  WhatsApp {site.contact.whatsappDisplay}
-                </a>
-              </p>
+              <div className="space-y-2">
+                {site.phones.map((phone) => (
+                  <p key={phone.whatsapp}>
+                    <a
+                      href={waLinkTo(
+                        phone.whatsapp,
+                        "Assalamu'alaikum, saya ingin bertanya.",
+                      )}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="tabular-nums transition hover:text-paper"
+                    >
+                      WhatsApp {phone.display}
+                    </a>
+                    <span className="block text-xs text-paper/55">
+                      {phone.label}
+                    </span>
+                  </p>
+                ))}
+              </div>
               <p>{site.contact.hours}</p>
             </address>
           </div>
@@ -65,15 +75,19 @@ export function SiteFooter() {
             <h2 className="text-[0.7rem] font-semibold uppercase tracking-label text-gold-300">
               Donasi
             </h2>
-            <p className="mt-4 text-sm leading-relaxed text-paper/70">
-              {site.bank.name}
-              <br />
-              <span className="font-semibold text-paper">
-                {site.bank.number}
-              </span>
-              <br />
-              a.n. {site.bank.holder}
-            </p>
+            <ul className="mt-4 space-y-3 text-sm leading-relaxed text-paper/70">
+              {site.banks.map((bank) => (
+                <li key={bank.number}>
+                  {bank.name}
+                  <br />
+                  <span className="font-semibold tabular-nums text-paper">
+                    {bank.number}
+                  </span>
+                  <br />
+                  a.n. {bank.holder}
+                </li>
+              ))}
+            </ul>
             <Link
               href="/donasi/"
               className="mt-4 inline-block text-sm font-semibold text-gold-300 underline decoration-gold-300/40 underline-offset-4 transition hover:decoration-gold-300"

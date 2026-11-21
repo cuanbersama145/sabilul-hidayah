@@ -52,5 +52,8 @@ Before implementing any task:
 - Do not claim a feature works before testing it.
 
 ## 8. Skills
-- `antislop-copy` terpasang **global** di `C:\Users\Lenovo\.config\opencode\skills\antislop-copy`, sehingga tersedia di semua proyek dan sesi. Gunakan saat menulis atau menyunting teks halaman, pengumuman, metadata, dan label UI untuk menghindari frasa klise.
-- Skill `ui-ux-pro-max` (beserta `design`, `design-system`, `ui-styling`, `brand`, `banner-design`, `slides`) terpasang di tingkat **proyek**: `.opencode/skills/`.
+- Skill **global** di `C:\Users\Lenovo\.config\opencode\skills\` — tersedia di semua proyek/sesi:
+  - `antislop-copy`: hindari frasa klise saat menulis/menyunting teks halaman.
+  - `ui-ux-pro-max`: intelijen desain UI/UX (pencarian butuh Python 3, sudah terpasang).
+  - `ant-design-principles`: prinsip desain Ant Design sebagai referensi tinjauan UI.
+- Skill **tingkat proyek** di `.opencode/skills/` (skill bawaan/third-party, diabaikan git): `design`, `design-system`, `ui-styling`, `brand`, `banner-design`, `slides`.

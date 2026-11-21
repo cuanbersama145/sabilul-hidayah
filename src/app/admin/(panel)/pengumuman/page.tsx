@@ -82,7 +82,7 @@ export default function AdminPengumumanPage() {
                 <td className="px-5 py-4">
                   <StatusBadge status={item.status} />
                 </td>
-                <td className="px-5 py-4 text-muted">{item.tanggalPublikasi}</td>
+                <td className="px-5 py-4 text-muted tabular-nums">{item.tanggalPublikasi}</td>
                 <td className="px-5 py-4">
                   <div className="flex flex-wrap items-center gap-3">
                   <Link

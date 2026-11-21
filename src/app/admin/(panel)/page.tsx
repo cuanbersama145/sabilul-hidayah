@@ -45,7 +45,7 @@ export default function AdminDashboardPage() {
             <p className="text-xs uppercase tracking-label text-muted">
               {item.label}
             </p>
-            <p className="mt-3 font-display text-3xl tracking-tight">
+            <p className="mt-3 font-display text-3xl tracking-tight tabular-nums">
               {item.nilai}
             </p>
           </div>

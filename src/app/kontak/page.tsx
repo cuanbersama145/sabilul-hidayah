@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/section";
 import { GirihPattern } from "@/components/girih-pattern";
 import { StarMark } from "@/components/logo";
-import { site, waLink } from "@/content/site";
+import { site, waLinkTo } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Kontak",
@@ -36,18 +36,25 @@ export default function KontakPage() {
         <div className="wrap grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <div data-sh-anim="kiri">
             <div className="grid gap-4 sm:grid-cols-2">
-              <a
-                href={waLink("Assalamu'alaikum, saya ingin bertanya tentang pondok.")}
-                target="_blank"
-                rel="noreferrer"
-                className="card kartu-timbul"
-              >
-                <h2 className="label font-sans">WhatsApp</h2>
-                <p className="mt-3 text-lg font-semibold">
-                  {site.contact.whatsappDisplay}
-                </p>
-                <p className="mt-1 text-sm text-muted">Balasan pada jam layanan</p>
-              </a>
+              {/* Satu kartu per nomor yang bisa dihubungi (whatsapp). */}
+              {site.phones.map((phone) => (
+                <a
+                  key={phone.whatsapp}
+                  href={waLinkTo(
+                    phone.whatsapp,
+                    "Assalamu'alaikum, saya ingin bertanya tentang pondok.",
+                  )}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="card kartu-timbul"
+                >
+                  <h2 className="label font-sans">WhatsApp</h2>
+                  <p className="mt-3 text-lg font-semibold tabular-nums">
+                    {phone.display}
+                  </p>
+                  <p className="mt-1 text-sm text-muted">{phone.label}</p>
+                </a>
+              ))}
 
               <a
                 href={`mailto:${site.contact.email}`}

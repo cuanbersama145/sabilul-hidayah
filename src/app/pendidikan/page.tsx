@@ -85,7 +85,7 @@ export default function PendidikanPage() {
               <tbody className="divide-y divide-ink/10">
                 {schedule.map((row) => (
                   <tr key={row.time} className="transition-colors hover:bg-paper2/50">
-                    <td className="w-24 px-5 py-3 font-display text-base text-forest-800">
+                    <td className="w-24 px-5 py-3 font-display text-base text-forest-800 tabular-nums">
                       {row.time}
                     </td>
                     <td className="px-5 py-3 text-ink/80">{row.activity}</td>

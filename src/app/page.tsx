@@ -141,7 +141,7 @@ export default async function HomePage() {
             </div>
 
             <div className="pointer-events-none absolute -left-8 top-[26%] z-30 hidden rounded-2xl border border-ink/10 bg-paper px-5 py-4 shadow-card lg:block">
-              <p className="font-display text-3xl leading-none text-forest-900">
+              <p className="font-display text-3xl leading-none text-forest-900 tabular-nums">
                 Rp 0
               </p>
               <p className="mt-2 text-[0.65rem] font-semibold uppercase tracking-label text-muted">
@@ -466,11 +466,22 @@ export default async function HomePage() {
             <p className="text-[0.65rem] font-semibold uppercase tracking-label text-gold-300">
               Rekening resmi
             </p>
-            <p className="mt-3 text-sm text-paper/60">{site.bank.name}</p>
-            <p className="mt-1 font-display text-3xl tracking-tight text-paper">
-              {site.bank.number}
-            </p>
-            <p className="mt-1 text-sm text-paper/60">a.n. {site.bank.holder}</p>
+            <div className="mt-3 space-y-4">
+              {site.banks.map((bank, index) => (
+                <div
+                  key={bank.number}
+                  className={index > 0 ? "border-t border-paper/15 pt-4" : undefined}
+                >
+                  <p className="text-sm text-paper/60">{bank.name}</p>
+                  <p className="mt-1 font-display text-3xl tracking-tight text-paper tabular-nums">
+                    {bank.number}
+                  </p>
+                  <p className="mt-1 text-sm text-paper/60">
+                    a.n. {bank.holder}
+                  </p>
+                </div>
+              ))}
+            </div>
             <Link href="/donasi/" className="btn-gold mt-6 w-full">
               Lihat cara berdonasi
             </Link>

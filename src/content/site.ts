@@ -10,7 +10,12 @@ export const site = {
   url: siteConfig.url,
   address: siteConfig.address,
   contact: siteConfig.contact,
-  bank: siteConfig.bank,
+  /** Daftar nomor WhatsApp yang bisa dihubungi (nomor pertama = utama). */
+  phones: siteConfig.phones,
+  /** Daftar rekening donasi (entri pertama = utama). */
+  banks: siteConfig.banks,
+  /** Rekening utama (entri pertama pada `banks`). */
+  bank: siteConfig.banks[0],
   pengasuh: siteConfig.pengasuh,
 } as const;
 
@@ -23,8 +28,13 @@ export const nav = [
   { label: "Kontak", href: "/kontak/" },
 ];
 
+/** Link WhatsApp ke nomor tertentu (format internasional tanpa "+"). */
+export const waLinkTo = (number: string, message: string) =>
+  `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+
+/** Link WhatsApp ke nomor utama pondok. */
 export const waLink = (message: string) =>
-  `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(message)}`;
+  waLinkTo(site.contact.whatsapp, message);
 
 export const pillars = [
   {

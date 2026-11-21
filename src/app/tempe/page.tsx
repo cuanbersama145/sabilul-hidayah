@@ -75,7 +75,7 @@ export default function TempePage() {
 		<div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
 		 <div className="rounded-card border border-ink/10 bg-paper p-8 shadow-card">
 		 <p className="label font-sans">Tempe Sabilul Hidayah</p>
-		 <p className="mt-4 font-display text-3xl tracking-tight">
+		 <p className="mt-4 font-display text-3xl tracking-tight tabular-nums">
 		  Rp 7.000
 		 </p>
 		 <p className="mt-3 text-sm leading-relaxed text-muted">

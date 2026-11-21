@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PageHero, SectionHeading } from "@/components/section";
 import { StarMark } from "@/components/logo";
 import { InquiryForm } from "@/components/forms";
-import { faq, registrationSteps, requirements, site, waLink } from "@/content/site";
+import { faq, registrationSteps, requirements, site, waLinkTo } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Pendaftaran",
@@ -127,10 +127,27 @@ export default function PendaftaranPage() {
               lead="Tulis pertanyaan singkat, lalu lanjutkan percakapan di WhatsApp. Balasan diberikan pada jam layanan."
             />
             <div className="mt-8 space-y-3 text-sm text-muted">
-              <p>
-                <span className="font-semibold text-ink">WhatsApp:</span>{" "}
-                {site.contact.whatsappDisplay}
-              </p>
+              <div>
+                <span className="font-semibold text-ink">WhatsApp:</span>
+                <ul className="mt-1 space-y-1">
+                  {site.phones.map((phone) => (
+                    <li key={phone.whatsapp}>
+                      <a
+                        href={waLinkTo(
+                          phone.whatsapp,
+                          "Assalamu'alaikum, saya ingin bertanya tentang pendaftaran santri baru.",
+                        )}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="font-medium tabular-nums text-ink link-underline"
+                      >
+                        {phone.display}
+                      </a>
+                      <span className="text-muted"> — {phone.label}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
               <p>
                 <span className="font-semibold text-ink">Jam layanan:</span>{" "}
                 {site.contact.hours}
@@ -142,14 +159,15 @@ export default function PendaftaranPage() {
               </p>
             </div>
             <a
-              href={waLink(
+              href={waLinkTo(
+                site.phones[0].whatsapp,
                 "Assalamu'alaikum, saya ingin bertanya tentang pendaftaran santri baru.",
               )}
               target="_blank"
               rel="noreferrer"
               className="mt-6 inline-flex text-sm font-semibold text-ink link-underline"
             >
-              Buka WhatsApp langsung
+              Buka WhatsApp panitia
             </a>
           </div>
 

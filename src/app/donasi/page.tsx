@@ -82,32 +82,39 @@ export default function DonasiPage() {
           <div>
             <SectionHeading eyebrow="Cara berdonasi" title="Transfer, lalu konfirmasi." />
 
-            <div className="relative mt-8 overflow-hidden rounded-card bg-forest-900 p-7 text-paper sm:p-8">
-              <GirihPattern
-                id="rekening-girih"
-                className="pointer-events-none absolute inset-0 h-full w-full text-gold-300/[0.08]"
-              />
-              <div className="relative">
-                <div className="flex items-start justify-between gap-4">
-                  <p className="text-[0.65rem] font-semibold uppercase tracking-label text-gold-300">
-                    Rekening resmi
-                  </p>
-                  <CopyButton value={site.bank.number} label="Salin nomor" />
+            <div className="mt-8 space-y-4">
+              {site.banks.map((bank, index) => (
+                <div
+                  key={bank.number}
+                  className="relative overflow-hidden rounded-card bg-forest-900 p-7 text-paper sm:p-8"
+                >
+                  <GirihPattern
+                    id={`rekening-girih-${index}`}
+                    className="pointer-events-none absolute inset-0 h-full w-full text-gold-300/[0.08]"
+                  />
+                  <div className="relative">
+                    <div className="flex items-start justify-between gap-4">
+                      <p className="text-[0.65rem] font-semibold uppercase tracking-label text-gold-300">
+                        {index === 0 ? "Rekening resmi" : "Rekening tambahan"}
+                      </p>
+                      <CopyButton value={bank.number} label="Salin nomor" />
+                    </div>
+                    <p className="mt-4 text-sm text-paper/60">{bank.name}</p>
+                    <p className="mt-1 font-display text-[2rem] tracking-tight text-paper tabular-nums sm:text-4xl">
+                      {bank.number}
+                    </p>
+                    <p className="mt-2 text-sm text-paper/60">
+                      a.n. {bank.holder}
+                    </p>
+                  </div>
                 </div>
-                <p className="mt-4 text-sm text-paper/60">{site.bank.name}</p>
-                <p className="mt-1 font-display text-[2rem] tracking-tight text-paper sm:text-4xl">
-                  {site.bank.number}
-                </p>
-                <p className="mt-2 text-sm text-paper/60">
-                  a.n. {site.bank.holder}
-                </p>
-              </div>
+              ))}
             </div>
 
             <ol className="mt-8 space-y-4">
               {transferSteps.map((step, index) => (
                 <li key={step} className="flex gap-4 text-sm leading-relaxed text-muted">
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gold-500 text-[0.65rem] font-bold text-forest-950">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gold-500 text-[0.65rem] font-semibold tabular-nums text-forest-950">
                     {index + 1}
                   </span>
                   {step}
